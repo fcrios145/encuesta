@@ -25,6 +25,7 @@ class Persona(TimeStampModel):
 class Pregunta(TimeStampModel):
     texto = models.TextField(max_length=512, blank=False, default="")
     catalogo = models.ForeignKey(Catalogo)
+    imagen = models.ImageField(upload_to='preguntas')
     persona = models.ManyToManyField(Persona)
 
     def __unicode__(self):
@@ -33,6 +34,7 @@ class Pregunta(TimeStampModel):
 
 class Respuesta(TimeStampModel):
     texto = models.TextField(max_length=512, blank=False, default="")
+    imagen = models.ImageField(upload_to='respuestas')
     pregunta = models.ForeignKey(Pregunta)
 
     def __unicode__(self):
