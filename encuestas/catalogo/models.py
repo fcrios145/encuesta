@@ -11,3 +11,18 @@ class TimeStampModel(models.Model):
 
     class Meta:
         abstract = True
+
+
+class Catalogo(TimeStampModel):
+    pass
+
+class Persona(TimeStampModel):
+    pass
+
+class Pregunta(TimeStampModel):
+    catalogo = models.ForeignKey(Catalogo)
+    persona = models.ManyToManyField(Persona)
+
+
+class Respuesta(TimeStampModel):
+    pregunta = models.ForeignKey(Pregunta)
