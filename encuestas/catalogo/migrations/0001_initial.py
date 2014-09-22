@@ -32,6 +32,7 @@ class Migration(SchemaMigration):
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
             ('modified', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
+            ('carrera', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['catalogo.Carrera'])),
             ('genero', self.gf('django.db.models.fields.BooleanField')(default=True)),
             ('edad', self.gf('django.db.models.fields.IntegerField')(default=0, null=True)),
         ))
@@ -109,6 +110,7 @@ class Migration(SchemaMigration):
         },
         u'catalogo.persona': {
             'Meta': {'object_name': 'Persona'},
+            'carrera': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['catalogo.Carrera']"}),
             'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'edad': ('django.db.models.fields.IntegerField', [], {'default': '0', 'null': 'True'}),
             'genero': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
