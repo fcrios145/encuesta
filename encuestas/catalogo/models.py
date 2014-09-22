@@ -29,6 +29,7 @@ class Carrera(TimeStampModel):
 
 
 class Persona(TimeStampModel):
+    carrera = models.ForeignKey(Carrera)
     genero = models.BooleanField(default=True, choices=(
         (True, 'Hombre'),
         (False, 'Mujer'),
